@@ -9,12 +9,7 @@ ja:
         memo: メモ  #g
         picture: 写真  #g
         title: タイトル  #g
-        edit: 編集  #g
-        show: 詳細  #g
-        destroy: 削除 #g
-        new book: 新規作成  #g
-        back: 戻る  #g
-        editing book: 本を編集する  #g
+
 
   notice:
     create: 本を新規作成しました  #g
@@ -23,3 +18,24 @@ ja:
 
   message:
     confirm: 削除します。よろしいですか？ #g
+
+  books:
+    edit:
+      editing book: 本を編集する  #g
+      show: 詳細  #g
+      back: 戻る  #g
+
+    index:
+      new book: 新規作成  #g
+      edit: 編集  #g
+      show: 詳細  #g
+      destroy: 削除 #g
+      back: 戻る  #g
+
+    show:
+      edit: 編集  #g
+      back: 戻る  #g
+
+    new:
+      new book: 新規作成  #g
+      back: 戻る  #g
