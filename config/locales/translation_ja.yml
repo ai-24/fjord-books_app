@@ -22,21 +22,10 @@ ja:
   books:
     edit:
       editing book: 本を編集する  #g
-      show: 詳細  #g
-      back: 戻る  #g
 
-    index:
-      new book: 新規作成  #g
-      edit: 編集  #g
+    link:
       show: 詳細  #g
+      edit: 編集  #g
       destroy: 削除 #g
-      back: 戻る  #g
-
-    show:
-      edit: 編集  #g
-      back: 戻る  #g
-
-    new:
       new book: 新規作成  #g
       back: 戻る  #g
-      

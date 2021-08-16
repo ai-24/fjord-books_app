@@ -1,14 +1,4 @@
 require_relative "boot"
-
-# # I18nライブラリに訳文の探索場所を指示する
-# I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
-
-# アプリケーションでの利用を許可するロケールをホワイトリスト化する
-I18n.available_locales = [:en, :ja ]
-
-# ロケールを:en以外に変更する
-I18n.default_locale = :ja
-
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
@@ -17,6 +7,14 @@ Bundler.require(*Rails.groups)
 
 module BooksApp
   class Application < Rails::Application
+    # # I18nライブラリに訳文の探索場所を指示する
+    # I18n.load_path += Dir[Rails.root.join('lib', 'locale', '*.{rb,yml}')]
+
+    # アプリケーションでの利用を許可するロケールをホワイトリスト化する
+    I18n.available_locales = [:en, :ja ]
+
+    # ロケールを:en以外に変更する
+    I18n.default_locale = :ja
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
