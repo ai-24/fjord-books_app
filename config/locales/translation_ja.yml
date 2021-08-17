@@ -10,7 +10,6 @@ ja:
         picture: 写真  #g
         title: タイトル  #g
 
-
   notice:
     create: 本を新規作成しました  #g
     update: 本を更新しました  #g
