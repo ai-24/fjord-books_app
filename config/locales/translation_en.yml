@@ -9,12 +9,6 @@ en:
         memo: Memo  #g
         picture: Picture  #g
         title: Title  #g
-        edit: Edit  #g
-        show: Show  #g
-        destroy: Destory #g
-        new book: New book  #g
-        back: Back  #g
-        editing book: Editing book  #g
 
   notice:
     create: 'Book was successfully created.' #g
@@ -23,4 +17,20 @@ en:
 
   message:
     confirm: 'Are you sure?' #g
-    
+
+  books:
+    link:
+      show: Show  #g
+      edit: Edit  #g
+      destroy: Destroy #g
+      new_book: New book #g
+      back: Back  #g
+
+    index:
+      title: List of books
+
+    new:
+      title: Create new book
+
+    edit:
+      title: Edit book  #g
