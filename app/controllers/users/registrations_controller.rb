@@ -2,7 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
+  before_action :configure_account_update_params
 
   # GET /resource/sign_up
   # def new
@@ -28,7 +28,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   end
   # end
 
-  #updateでDBに保存する属性に許可を与える。privateメソッド内に定義しクラス内のみで有効にする。
+  # updateでDBに保存する属性に許可を与える。privateメソッド内に定義しクラス内のみで有効にする。
   # private
   # def user_params
   #   params.require(:user).permit(:name, :postal_code, :address, :self_introduction, :email)
@@ -57,7 +57,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :postal_code, :address, :self_introduction, :email])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name postal_code address self_introduction email])
   end
 
   # The path used after sign up.
@@ -65,7 +65,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  def after_update_path_for(resource)
+  def after_update_path_for(_resource)
     user_path(current_user)
   end
   # The path used after sign up for inactive accounts.

@@ -58,7 +58,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'carrierwave'
-gem 'kaminari'
 gem 'devise'
-gem 'dotenv-rails'
 gem 'devise-i18n'
+gem 'dotenv-rails'
+gem 'kaminari'
