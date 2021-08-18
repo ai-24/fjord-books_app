@@ -1,4 +1,4 @@
-<h1>ユーザープロフィール</h1><br />
+<h1>ユーザー情報</h1><br />
 
 <p>ユーザー名</p>
 <%= @user.name %>
@@ -14,5 +14,6 @@
 
 <p>自己紹介文</p>
 <%= @user.self_introduction %>
+<br />
 
-<%= link_to "Back", :back %>
+<%= link_to t('views.common.back'), :back %>

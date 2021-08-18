@@ -215,6 +215,11 @@ ja:
       delete_confirm: よろしいですか？
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
+      edit_profile: ユーザー情報の編集
+      logout: ログアウト
+      login: ログイン
+      sign_up: アカウント登録
+      reset_password: パスワード再発行のメールを送信する
     pagination:
       first: '最初'
       last: '最後'
