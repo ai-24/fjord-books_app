@@ -26,11 +26,11 @@ ja:
       new_book: 新規作成  #g
       back: 戻る  #g
 
-  index:
-    title: 本一覧
+    index:
+      title: 本一覧
 
-  new:
-    title: 本新規作成
+    new:
+      title: 本新規作成
 
-  edit:
-    title: 本を編集する  #g
+    edit:
+      title: 本を編集する  #g
