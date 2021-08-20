@@ -17,7 +17,7 @@
       <tr>
         <td>
           <% if user.image.attached? %>
-            <%= image_tag user.image, class: "image" %>
+            <%= image_tag user.image.variant(resize:'100x100').processed %>
           <% end %>
         </td>
         <td><%= user.email %></td>
