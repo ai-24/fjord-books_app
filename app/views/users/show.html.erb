@@ -1,18 +1,18 @@
-<h1>ユーザー情報</h1><br />
+<h1><%= t '.title' %></h1>
 
-<p>ユーザー名</p>
+<p><%= User.human_attribute_name(:name) %></p>
 <%= @user.name %>
 
-<p>メールアドレス</p>
+<p><%= User.human_attribute_name(:email) %></p>
 <%= @user.email %>
 
-<p>郵便番号</p>
+<p><%= User.human_attribute_name(:postal_code) %></p>
 <%= @user.postal_code %>
 
-<p>住所</p>
+<p><%= User.human_attribute_name(:address) %></p>
 <%= @user.address %>
 
-<p>自己紹介文</p>
+<p><%= User.human_attribute_name(:self_introduction) %></p>
 <%= @user.self_introduction %>
 <br />
 

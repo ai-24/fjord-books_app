@@ -220,6 +220,9 @@ ja:
       login: ログイン
       sign_up: アカウント登録
       reset_password: パスワード再発行のメールを送信する
+      books_list: 本一覧
+      users_list: ユーザー一覧
+      user_info: ユーザー情報
     pagination:
       first: '最初'
       last: '最後'

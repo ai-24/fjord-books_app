@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>本アプリ</title>
+    <title><%= Book.model_name.human %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -19,10 +19,10 @@
 
   <p class="navbar-text pull-right">
     <% if user_signed_in? %>
-      <strong><%= current_user.email %></strong>としてログイン中<br />
-      <%= link_to '本一覧', books_path %> |
-      <%= link_to 'ユーザー一覧', users_path %> |
-      <%= link_to 'ユーザー情報', '../users/show' %> |
+      <strong><%= t('devise.shared.links.sign_in_with_provider',provider:current_user.email) %></strong><br />
+      <%= link_to t('views.common.books_list'), books_path %> |
+      <%= link_to t('views.common.users_list'), users_path %> |
+      <%= link_to t('views.common.user_info'), '../users/show' %> |
       <%= link_to t('views.common.edit_profile'), edit_user_registration_path, class: 'navbar-link' %> |
       <%= link_to t('views.common.logout'), destroy_user_session_path, method: :delete, class: 'navbar-link'  %>
     <% else %>

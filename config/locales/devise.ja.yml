@@ -6,17 +6,13 @@ ja:
     attributes:
       user:
         name: ユーザー名 #g
+        email: メールアドレス
         postal_code: 郵便番号 #g
         address: 住所 #g
         self_introduction: 自己紹介文 #g
 
-  devise:
-    common:
-      characters_minimum: 文字以上で入力して下さい
-    registrations:
-      edit:
-        title: ユーザー情報の編集 #g
-        cancel_my_account: アカウントの削除 #g
-        unhappy: 削除しますか #g
-        leave_blank: (変更しない場合は入力不要です)
-        current_password_to_confirm: (情報を更新するため、現在ご使用のパスワードを入力して下さい)
+  users:
+    index:
+      title: ユーザー一覧
+    show:
+      title: ユーザー情報

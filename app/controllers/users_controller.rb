@@ -12,8 +12,4 @@ class UsersController < ApplicationController
               User.find(params[:id])
             end
   end
-
-  def update
-    @user.update(user_params)
-  end
 end
