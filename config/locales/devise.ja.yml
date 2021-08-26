@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー #g
+
+    attributes:
+      user:
+        name: ユーザー名 #g
+        email: メールアドレス
+        postal_code: 郵便番号 #g
+        address: 住所 #g
+        self_introduction: 自己紹介文 #g
+
+  users:
+    index:
+      title: ユーザー一覧
+    show:
+      title: ユーザー情報

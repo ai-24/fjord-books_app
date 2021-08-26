@@ -1,0 +1,19 @@
+<h1><%= t '.title' %></h1>
+
+<p><%= User.human_attribute_name(:name) %></p>
+<%= @user.name %>
+
+<p><%= User.human_attribute_name(:email) %></p>
+<%= @user.email %>
+
+<p><%= User.human_attribute_name(:postal_code) %></p>
+<%= @user.postal_code %>
+
+<p><%= User.human_attribute_name(:address) %></p>
+<%= @user.address %>
+
+<p><%= User.human_attribute_name(:self_introduction) %></p>
+<%= @user.self_introduction %>
+<br />
+
+<%= link_to t('views.common.back'), :back %>
