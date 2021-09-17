@@ -1,0 +1,9 @@
+<h1>Editing Report</h1>
+<% if @report.user == current_user %>
+  <%= render 'form', report: @report %>
+<% else %>
+  <p id = "alert" >この日報は編集できません</p>
+<% end %>
+
+<%= link_to 'Show', @report %> |
+<%= link_to 'Back', reports_path %>
