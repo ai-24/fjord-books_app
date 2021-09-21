@@ -19,5 +19,7 @@ module BooksApp
     config.time_zone = 'Tokyo'
     #config.active_record.default_timezone = :local
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.autoloader = :classic
   end
 end

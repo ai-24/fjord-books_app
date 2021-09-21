@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   has_many :reports
 
+  has_many :comments
+
   has_one_attached :avatar
 
   def following?(user)

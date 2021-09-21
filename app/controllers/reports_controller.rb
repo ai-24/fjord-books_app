@@ -23,28 +23,20 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params)
     @report["user_id"] = current_user.id
-
-    respond_to do |format|
       if @report.save
-        format.html { redirect_to @report, notice: "Report was successfully created." }
-        format.json { render :show, status: :created, location: @report }
+        redirect_to @report, notice: "Report was successfully created."
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @report.errors, status: :unprocessable_entity }
-      end
+        render :new, status: :unprocessable_entity
     end
-  end
+    end
+
 
   # PATCH/PUT /reports/1 or /reports/1.json
   def update
-    respond_to do |format|
       if @report.update(report_params)
-        format.html { redirect_to @report, notice: "Report was successfully updated." }
-        format.json { render :show, status: :ok, location: @report }
+       redirect_to @report, notice: "Report was successfully updated."
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @report.errors, status: :unprocessable_entity }
-      end
+        render :edit, status: :unprocessable_entity
     end
   end
 
@@ -52,10 +44,7 @@ class ReportsController < ApplicationController
   def destroy
     if @report.user == current_user
       @report.destroy
-      respond_to do |format|
-        format.html { redirect_to reports_url, notice: "Report was successfully destroyed." }
-        format.json { head :no_content }
-      end
+        redirect_to reports_url, notice: "Report was successfully destroyed."
     else
       redirect_to reports_url, alert: '権限がないため削除できません'
     end

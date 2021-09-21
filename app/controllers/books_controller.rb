@@ -26,40 +26,30 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
 
-    respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: t('controllers.common.notice_create', name: Book.model_name.human) }
-        format.json { render :show, status: :created, location: @book }
+        redirect_to @book, notice: t('controllers.common.notice_create', name: Book.model_name.human)
       else
-        format.html { render :new }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        render :new
       end
     end
-  end
 
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
-    respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: t('controllers.common.notice_update', name: Book.model_name.human) }
-        format.json { render :show, status: :ok, location: @book }
+        redirect_to @book, notice: t('controllers.common.notice_update', name: Book.model_name.human)
+
       else
-        format.html { render :edit }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        render :edit
       end
     end
-  end
 
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy
     @book.destroy
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: t('controllers.common.notice_destroy', name: Book.model_name.human) }
-      format.json { head :no_content }
+     redirect_to books_url, notice: t('controllers.common.notice_destroy', name: Book.model_name.human)
     end
-  end
 
   private
 
