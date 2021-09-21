@@ -1,20 +1,20 @@
 <p>
-  <strong>Posted Date:</strong>
+  <strong><%= Report.human_attribute_name(:posted_date) %>:</strong>
   <%= @report.created_at %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= Report.human_attribute_name(:title) %>:</strong>
   <%= @report.title %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong><%= Report.human_attribute_name(:content) %>:</strong>
   <%= @report.content %>
 </p>
 
-<%= link_to 'Edit', edit_report_path(@report) %>
+<%= link_to t('views.common.edit'), edit_report_path(@report) %>
 
 <%= render 'comments/comment', commentable: @report  %>
 
-<%= link_to 'Back', reports_path %>
+<%= link_to t('views.common.back'), reports_path %>
