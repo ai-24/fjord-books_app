@@ -213,14 +213,13 @@ ja:
       destroy: 削除
       new: 新規作成
       back: 戻る
+      created_at: 投稿日
       delete_confirm: よろしいですか？
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
       title_show: "%{name}の詳細"
       sign_out: ログアウト
       minimum_length: "%{length}文字以上"
-    comment:
-      no_comment: コメントはありません
     pagination:
       first: '最初'
       last: '最後'
@@ -231,6 +230,11 @@ ja:
     application:
       menu: メニュー
       sign_in_as: "%{email} としてログイン中"
+  comments:
+    no_comment: コメントはありません
+  reports:
+    new:
+      title: レポートの新規作成
   users:
     show:
       followings: "%{count} フォロー"

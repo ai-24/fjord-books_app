@@ -19,11 +19,9 @@ ja:
         self_introduction: 自己紹介文
         avatar: ユーザ画像
       report:
-        posted_date: 投稿日
         title: タイトル
         content: 内容
         editing_report: 日報の編集
       comment:
         user: ユーザー
-        created_at: 投稿日
         comment: コメント
