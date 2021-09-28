@@ -46,7 +46,7 @@ class ReportsController < ApplicationController
       @report.destroy
         redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
     else
-      redirect_to reports_url, alert: '権限がないため削除できません'
+      redirect_to reports_url, alert: t('errors.no_authority')
     end
   end
 

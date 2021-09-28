@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :reports do
-    resources :comments, only: [:create], module: :reports
+    resources :comments, module: :reports
   end
 
   resources :books do

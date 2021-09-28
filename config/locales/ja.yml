@@ -107,6 +107,7 @@ ja:
       month: 月
       year: 年
   errors:
+    no_authority: 権限がないため削除できません
     format: "%{attribute}%{message}"
     messages:
       accepted: を受諾してください
@@ -137,7 +138,7 @@ ja:
       body: 次の項目を確認してください
       header:
         one: "%{model}にエラーが発生しました"
-        other: "%{model}に%{count}個のエラーが発生しました"
+        other: 個のエラーが発生しました
   helpers:
     select:
       prompt: 選択してください
@@ -218,6 +219,8 @@ ja:
       title_show: "%{name}の詳細"
       sign_out: ログアウト
       minimum_length: "%{length}文字以上"
+    comment:
+      no_comment: コメントはありません
     pagination:
       first: '最初'
       last: '最後'
