@@ -26,30 +26,30 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
 
-      if @book.save
-        redirect_to @book, notice: t('controllers.common.notice_create', name: Book.model_name.human)
-      else
-        render :new
-      end
+    if @book.save
+      redirect_to @book, notice: t('controllers.common.notice_create', name: Book.model_name.human)
+    else
+      render :new
     end
+  end
 
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
-      if @book.update(book_params)
-        redirect_to @book, notice: t('controllers.common.notice_update', name: Book.model_name.human)
+    if @book.update(book_params)
+      redirect_to @book, notice: t('controllers.common.notice_update', name: Book.model_name.human)
 
-      else
-        render :edit
-      end
+    else
+      render :edit
     end
+  end
 
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy
     @book.destroy
-     redirect_to books_url, notice: t('controllers.common.notice_destroy', name: Book.model_name.human)
-    end
+    redirect_to books_url, notice: t('controllers.common.notice_destroy', name: Book.model_name.human)
+  end
 
   private
 
