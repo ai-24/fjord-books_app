@@ -38,7 +38,6 @@ class BooksController < ApplicationController
   def update
     if @book.update(book_params)
       redirect_to @book, notice: t('controllers.common.notice_update', name: Book.model_name.human)
-
     else
       render :edit
     end

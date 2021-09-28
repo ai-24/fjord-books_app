@@ -2,34 +2,34 @@
 
 <table>
   <% if commentable.comments.present? %>
-  <thead>
-  <tr>
-    <th><%= Comment.human_attribute_name(:user) %></th>
-    <th><%= t('views.common.created_at') %></th>
-    <th><%= Comment.human_attribute_name(:comment) %></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% commentable.comments.each do |comment| %>
-  <% if  comment.user.nil? %>
-      <tr class = comment>
-    <td>退会済みユーザー</td>
-    <% elsif comment.user.name.present? %>
-          <td><%= comment.user.name %></td>
-    <% else %>
-          <td><%= comment.user.email %></td>
-    <% end %>
-        <td><%= comment.created_at %></td>
-        <td><%= comment.comment %></td>
-        <td><%= link_to t('views.common.edit'), [:edit, commentable, comment]  %></td>
-        <td><%= link_to t('views.common.destroy'), [commentable, comment] , method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+    <thead>
+      <tr>
+        <th><%= Comment.human_attribute_name(:user) %></th>
+        <th><%= t('views.common.created_at') %></th>
+        <th><%= Comment.human_attribute_name(:comment) %></th>
       </tr>
-  <% end %>
+    </thead>
+
+    <tbody>
+    <% commentable.comments.each do |comment| %>
+    <% if  comment.user.nil? %>
+      <tr class = comment>
+      <td>退会済みユーザー</td>
+    <% elsif comment.user.name.present? %>
+        <td><%= comment.user.name %></td>
+    <% else %>
+        <td><%= comment.user.email %></td>
+    <% end %>
+      <td><%= comment.created_at %></td>
+      <td><%= comment.comment %></td>
+      <td><%= link_to t('views.common.edit'), [:edit, commentable, comment]  %></td>
+      <td><%= link_to t('views.common.destroy'), [commentable, comment] , method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+      </tr>
+    <% end %>
   <% else %>
     <p class="notice"><%= t('comments.no_comment') %></p>
-<% end %>
-  </tbody>
+  <% end %>
+    </tbody>
 </table>
 
 <%= form_with(model:[commentable, Comment.new] , local: true) do |form| %>
