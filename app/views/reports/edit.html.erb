@@ -2,7 +2,7 @@
 <% if @report.user == current_user %>
   <%= render 'form', report: @report %>
 <% else %>
-  <p id = "alert" >この日報は編集できません</p>
+  <p id="alert">この日報は編集できません</p>
 <% end %>
 
 <%= link_to t('views.common.show'), @report %> |

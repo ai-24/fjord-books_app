@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.build(comment_params)
-    @comment.user_id = current_user.id
+    @comment.user = current_user
     if @comment.save
       redirect_to @commentable
     else
@@ -21,8 +21,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    if @comment.user == current_user
-      @comment.destroy
+    if @comment.destroy
       redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
     else
       redirect_to @commentable, alert: t('errors.no_authority')
@@ -32,7 +31,12 @@ class CommentsController < ApplicationController
   private
 
   def set_comment
-    @comment = Comment.find(params[:id])
+    @comments = current_user.comments
+    if @comments.exists?(params[:id])
+      @comment = @comments.find(params[:id])
+    else
+      render inline: '<h1><%= "このコメントは編集できません" %></h1>'
+    end
   end
 
   def comment_params

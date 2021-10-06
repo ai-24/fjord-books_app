@@ -12,24 +12,26 @@
 
     <tbody>
     <% commentable.comments.each do |comment| %>
-    <% if  comment.user.nil? %>
-      <tr class = comment>
-      <td>退会済みユーザー</td>
-    <% elsif comment.user.name.present? %>
+      <% if comment.user.nil? %>
+        <tr>
+        <td>退会済みユーザー</td>
+      <% elsif comment.user.name.present? %>
         <td><%= comment.user.name %></td>
-    <% else %>
+      <% else %>
         <td><%= comment.user.email %></td>
-    <% end %>
+      <% end %>
       <td><%= comment.created_at %></td>
       <td><%= comment.comment %></td>
-      <td><%= link_to t('views.common.edit'), [:edit, commentable, comment]  %></td>
-      <td><%= link_to t('views.common.destroy'), [commentable, comment] , method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+      <td><%= link_to t('views.common.edit'), [:edit, commentable, comment] %></td>
+      <% if comment.user == current_user %>
+        <td><%= link_to t('views.common.destroy'), [commentable, comment] , method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+      <% end %>
       </tr>
     <% end %>
+    </tbody>
   <% else %>
     <p class="notice"><%= t('comments.no_comment') %></p>
   <% end %>
-    </tbody>
 </table>
 
 <%= form_with(model:[commentable, Comment.new] , local: true) do |form| %>
