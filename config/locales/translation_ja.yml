@@ -22,6 +22,8 @@ ja:
         title: タイトル
         content: 内容
         editing_report: 日報の編集
+        created_at: 投稿日
       comment:
         user: ユーザー
         comment: コメント
+        created_at: 投稿日
