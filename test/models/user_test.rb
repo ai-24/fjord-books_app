@@ -1,7 +1,9 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test "#following? should return true if receiver follow argument" do
+  test '#following? should return true if receiver follow argument' do
     me = User.new(email: 'foo@example.com', password: 'password')
     me.save!
     she = User.new(email: 'hoge@example.com', password: 'password')
@@ -11,7 +13,7 @@ class UserTest < ActiveSupport::TestCase
     assert me.following?(she)
   end
 
-  test "followed_by? should return true if receiver are followed by argument" do
+  test 'followed_by? should return true if receiver are followed by argument' do
     me = User.new(email: 'foo@example.com', password: 'password')
     me.save!
     she = User.new(email: 'hoge@example.com', password: 'password')
@@ -21,7 +23,7 @@ class UserTest < ActiveSupport::TestCase
     assert she.followed_by?(me)
   end
 
-  test "#follow should return true when receiver followed argument" do
+  test '#follow should return true when receiver followed argument' do
     me = User.new(email: 'foo@example.com', password: 'password')
     me.save!
     she = User.new(email: 'hoge@example.com', password: 'password')
@@ -32,7 +34,7 @@ class UserTest < ActiveSupport::TestCase
     assert me.following?(she)
   end
 
-  test "#unfollow should return true when argument are unfollowed" do
+  test '#unfollow should return true when argument are unfollowed' do
     me = User.new(email: 'foo@example.com', password: 'password')
     me.save!
     she = User.new(email: 'hoge@example.com', password: 'password')
@@ -44,12 +46,11 @@ class UserTest < ActiveSupport::TestCase
     assert_not me.following?(she)
   end
 
-   test "#name_or_email should return name or email" do
-     user = User.new(name: '', email: 'foo@example.com')
-     assert_equal 'foo@example.com', user.name_or_email
+  test '#name_or_email should return name or email' do
+    user = User.new(name: '', email: 'foo@example.com')
+    assert_equal 'foo@example.com', user.name_or_email
 
-     user2 = User.new(name: 'Foo Bar', email: 'foo@example.com')
-     assert_equal 'Foo Bar', user2.name_or_email
-   end
-
+    user2 = User.new(name: 'Foo Bar', email: 'foo@example.com')
+    assert_equal 'Foo Bar', user2.name_or_email
+  end
 end
