@@ -1,4 +1,4 @@
-<% if @comment.user == current_user %>
+<% if @commnet.present? %>
   <%= form_with(model:[@commentable, @comment], local: true) do |form| %>
     <%= form.label :comment %>
     <%= form.text_area :comment, required: true %>

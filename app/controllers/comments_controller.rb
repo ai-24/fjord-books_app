@@ -16,12 +16,16 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    @comment.update(comment_params)
-    redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
+    if @comment.update(comment_params)
+      redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    if @comment.destroy
+    if @comment.present?
+      @comment.destroy
       redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
     else
       redirect_to @commentable, alert: t('errors.no_authority')
@@ -31,12 +35,7 @@ class CommentsController < ApplicationController
   private
 
   def set_comment
-    @comments = current_user.comments
-    if @comments.exists?(params[:id])
-      @comment = @comments.find(params[:id])
-    else
-      render inline: '<h1><%= "このコメントは編集できません" %></h1>'
-    end
+    @comment = current_user.comments.find_by(id: params[:id])
   end
 
   def comment_params

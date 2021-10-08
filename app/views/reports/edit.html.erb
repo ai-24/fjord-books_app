@@ -1,8 +1,8 @@
 <h1><%= Report.human_attribute_name(:editing_report) %></h1>
-<% if @report.user == current_user %>
+<% if @report.present? %>
   <%= render 'form', report: @report %>
 <% else %>
-  <p id="alert">この日報は編集できません</p>
+  <%= render partial: 'error_messages', locals: { message: '編集' } %>
 <% end %>
 
 <%= link_to t('views.common.show'), @report %> |

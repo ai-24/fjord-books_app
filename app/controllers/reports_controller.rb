@@ -42,7 +42,8 @@ class ReportsController < ApplicationController
 
   # DELETE /reports/1 or /reports/1.json
   def destroy
-    if @report.destroy
+    if @report.present?
+      @report.destroy
       redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
     else
       redirect_to reports_url, alert: t('errors.no_authority')
@@ -53,12 +54,7 @@ class ReportsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_report
-    @reports = current_user.reports
-    if @reports.exists?(params[:id])
-      @report = @reports.find(params[:id])
-    else
-      render inline: '<h1><%= "この日報は編集できません" %></h1>'
-    end
+    @report = current_user.reports.find_by(id: params[:id])
   end
 
   # Only allow a list of trusted parameters through.
