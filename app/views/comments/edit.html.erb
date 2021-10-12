@@ -1,14 +1,10 @@
-<% if @commnet.present? %>
-  <%= form_with(model:[@commentable, @comment], local: true) do |form| %>
-    <%= form.label :comment %>
-    <%= form.text_area :comment, required: true %>
+<%= form_with(model:[@commentable, @comment], local: true) do |form| %>
+  <%= form.label :comment %>
+  <%= form.text_area :comment, required: true %>
 
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-  <% end %>
-<% else %>
-  <p id="alert">このコメントは編集できません</p>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
 <% end %>
 
 <%= link_to t('views.common.back'), [@commentable]  %>

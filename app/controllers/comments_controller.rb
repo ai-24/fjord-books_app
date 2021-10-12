@@ -16,20 +16,13 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    if @comment.update(comment_params)
-      redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    @comment.update(comment_params)
+    redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
   end
 
   def destroy
-    if @comment.present?
-      @comment.destroy
-      redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
-    else
-      redirect_to @commentable, alert: t('errors.no_authority')
-    end
+    @comment.destroy
+    redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   private

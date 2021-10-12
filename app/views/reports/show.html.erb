@@ -13,7 +13,9 @@
   <%= @report.content %>
 </p>
 
-<%= link_to t('views.common.edit'), edit_report_path(@report) %>
+<% if @report.user == current_user %>
+  <%= link_to t('views.common.edit'), edit_report_path(@report) %>
+<% end %>
 
 <%= render 'comments/comment', commentable: @report  %>
 

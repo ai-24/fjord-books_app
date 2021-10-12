@@ -22,8 +22,8 @@
       <% end %>
       <td><%= comment.created_at %></td>
       <td><%= comment.comment %></td>
-      <td><%= link_to t('views.common.edit'), [:edit, commentable, comment] %></td>
       <% if comment.user == current_user %>
+        <td><%= link_to t('views.common.edit'), [:edit, commentable, comment] %></td>
         <td><%= link_to t('views.common.destroy'), [commentable, comment] , method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
       <% end %>
       </tr>
