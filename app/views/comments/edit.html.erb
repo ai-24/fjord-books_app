@@ -1,4 +1,15 @@
 <%= form_with(model:[@commentable, @comment], local: true) do |form| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @comment.errors.count %><%= t('errors.template.header.other') %></h2>
+
+      <ul>
+        <% @comment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= form.label :comment %>
   <%= form.text_area :comment, required: true %>
 

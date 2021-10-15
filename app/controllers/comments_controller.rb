@@ -16,12 +16,15 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    @comment.update(comment_params)
-    redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
+    if @comment.update(comment_params)
+      redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
-    @comment.destroy
+    @comment.destroy!
     redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 

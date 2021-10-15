@@ -33,13 +33,16 @@ class ReportsController < ApplicationController
 
   # PATCH/PUT /reports/1 or /reports/1.json
   def update
-    @report.update(report_params)
-    redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+    if @report.update(report_params)
+      redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+    else
+      render :edit
+    end
   end
 
   # DELETE /reports/1 or /reports/1.json
   def destroy
-    @report.destroy
+    @report.destroy!
     redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
   end
 
