@@ -1,0 +1,44 @@
+<h1 class="comment_title"><%= Comment.model_name.human %></h1>
+
+<table>
+  <% if commentable.comments.present? %>
+    <thead>
+      <tr>
+        <th><%= Comment.human_attribute_name(:user) %></th>
+        <th><%= Comment.human_attribute_name(:created_at) %></th>
+        <th><%= Comment.human_attribute_name(:comment) %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% commentable.comments.each do |comment| %>
+      <% if comment.user.nil? %>
+        <tr>
+        <td>退会済みユーザー</td>
+      <% elsif comment.user.name.present? %>
+        <td><%= comment.user.name %></td>
+      <% else %>
+        <td><%= comment.user.email %></td>
+      <% end %>
+      <td><%= comment.created_at %></td>
+      <td><%= comment.comment %></td>
+      <% if comment.user == current_user %>
+        <td><%= link_to t('views.common.edit'), [:edit, commentable, comment] %></td>
+        <td><%= link_to t('views.common.destroy'), [commentable, comment] , method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
+      <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  <% else %>
+    <p class="notice"><%= t('comments.no_comment') %></p>
+  <% end %>
+</table>
+
+<%= form_with(model:[commentable, Comment.new] , local: true) do |form| %>
+  <%= form.label :comment %>
+  <%= form.text_area :comment, required: true %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

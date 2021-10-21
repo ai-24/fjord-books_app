@@ -107,6 +107,7 @@ ja:
       month: 月
       year: 年
   errors:
+    no_authority: 権限がないため削除できません
     format: "%{attribute}%{message}"
     messages:
       accepted: を受諾してください
@@ -137,7 +138,7 @@ ja:
       body: 次の項目を確認してください
       header:
         one: "%{model}にエラーが発生しました"
-        other: "%{model}に%{count}個のエラーが発生しました"
+        other: 個のエラーが発生しました
   helpers:
     select:
       prompt: 選択してください
@@ -228,6 +229,11 @@ ja:
     application:
       menu: メニュー
       sign_in_as: "%{email} としてログイン中"
+  comments:
+    no_comment: コメントはありません
+  reports:
+    new:
+      title: 日報の新規作成
   users:
     show:
       followings: "%{count} フォロー"
