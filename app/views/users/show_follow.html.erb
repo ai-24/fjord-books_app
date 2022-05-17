@@ -1,0 +1,13 @@
+<%= render 'shared/stats' %>
+<% if @users.any? %>
+<% @users.each do |user| %>
+    <% if user.avatar.attached? %>
+      <%= image_tag user.avatar.variant(resize_to_fill: [150, 150])%>
+      <%= link_to user.name, user%>
+    <% else %>
+      <%= link_to user.name, user%>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= paginate @users %>
